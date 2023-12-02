@@ -103,7 +103,7 @@
 			<br>
 			
 			We have created a main selection program, which allows us to quickly and efficiently choose missions 
-			(or even re-run missions quickly) during matches. Meaningful EV3 screen messages allow the 
+			(or even re-run missions quickly) during matches. Meaningful Spike Prime screen messages allow the 
 			robot technicians to select programs with ease.
 
 			<br>
@@ -127,8 +127,8 @@
 			deceleration features to minimize the likelihood of wheel slip. This provides for greater repeatability 
 			of the robot’s movements.
 
-			<br>
-			<br>
+			<!--<br>
+			<br>-->
 			
 			<!--We make frequent use of our square up MyBlock which allows the robot to position itself perpendicularly 
 			to any line (from virtually any angle of attack).
@@ -157,37 +157,37 @@
 		<!--<h1>Program Hierarchy</h1>-->
 		<br>
 		<p>In the interest of maximizing programming efficiency, we use functions whenever possible.
-			Functions are used for typical robot movements, like line following, squaring to a line,
-			error-corrected movements, etc., as well as for entire missions.
-			The use of subroutines allows us to re-use programming code and enjoy the benefits of an
-			efficient mission selection program. The diagram below illustrates the great extent
-			to which Ctrl-Z re-uses programming code.
+			Functions are used for typical robot movements, like gyro-corrected movement, acceleration and deceleration, etc., 
+			as well as for entire missions.	The use of subroutines allows us to re-use programming code and enjoy the 
+			benefits of an efficient mission selection program. 
+			<!--The diagram below illustrates the great extent
+			to which Ctrl-Z re-uses programming code.-->
 		</p>
 		<!--<img src="images/robot/program_hierarchy.png"></img>-->
 	
 		<br>
 		<h1>Function Examples</h1>
-		<br>
 	
-		<h3>Main Selection Program</h3>
+		<h3>Gyro-corrected Movement</h3>
 
-		<p>This selection program allows us to quickly and 
-		efficiently switch programs/missions 
-		during the two-and-a-half minute match. 
-		Our selection program contains functions, each containing one of our missions.
-		The user of the robot simply starts the selection 
-		program and clicks the centre button to start the first
-		mission. Then, when the mission finishes, the robot 
-		automatically advances to the next mission and waits for
-		the user to click the centre button to run the appropriate mission.
-		In case one needs to go backwards or 
-		forwards through the list of missions, the program 
-		accommodates that by allowing the user to navigate 
-		with the left and right arrow buttons.</p>
+		<p>This is an example of one of our robot’s functions, which allows our robot to drive accurately. 
+			The function is a gyro-based driving mechanism that uses a PID (proportional, integral, derivative) 
+			controller to maintain an accurate heading. PID is an algorithm that helps correct variations 
+			from a known good value (in this case known heading or angle) smoothly and generally more accurately. 
+			Proportional adjustment controls motor power based on distance from the  desired angle, Integral 
+			adjustment corrects for historical errors, and Derivative adjustment corrects for a trend in growth 
+			of the error. In the end, we assigned a coefficient of 0 to the derivative and integral component as 
+			their contribution was minimal.
+			<br>
+			<br>
+			This code also accelerates and decelerates the robot, which also improves accuracy as it minimizes the 
+			effect of wheel slip on starting, and momentum error on stopping. We also had a similar robot control 
+			function for accelerated and decelerated gyro-based turning.
+			</p>
 		<br>
-		<!--<img src="images/robot/main.png" style="width: 1097px; height: 415px;"></img>-->
+		<!--<img src="images/robot/main.png"></img>
 		<br>
-		<br>
+		<br>-->
 		
 		<!--<h3>Proportional Line Following</h3>
 
@@ -216,8 +216,7 @@
 		<a href="ProgramDocProvincials.pdf" target="_blank">
 		<img src="images/robot/programdoc.JPG"></img></a>
 		<br>
-		-->
-		<br>
+		<br>-->
     </div>
 	<script src="jquery/jquery-1.11.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
